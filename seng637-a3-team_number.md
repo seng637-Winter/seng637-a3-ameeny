@@ -2,52 +2,154 @@
 
 **Lab. Report #3 – Code Coverage, Adequacy Criteria and Test Case Correlation**
 
-| Group \#:      |     |
+| Group \#:11      |     |
 | -------------- | --- |
 | Student Names: |     |
-|                |     |
-|                |     |
-|                |     |
+|Ameen                |     |
+|Mohammad                |     |
+|Md Rakin                |     |
+|Kunj               |     |
+|Saif                |     |
 
 (Note that some labs require individual reports while others require one report
 for each group. Please see each lab document for details.)
 
 # 1 Introduction
 
-Text…
+In this assignment, we build on blackbox testing of Assignment 2 in understanding and performing white-box testing using JUnit in Eclipse. First, using the recommended EclEmma coverage tool, we further our testing of what was covered in Assignment 2. 
+
 
 # 2 Manual data-flow coverage calculations for X and Y methods
 
-Text…
+### `DataUtilities.calculateColumnTotal)_` 
+![Alt Text](media/sec2/DataUtilities_calculateColumnTotal.png)
+
+#### Defs/Uses/DU-pairs
+![Alt Text](media/sec2/tables/calcol_def_use_dupair.png)
+#### DU-pair coverage calculations
+![Alt Text](media/sec2/tables/CalculateCol_total_dupair_coverage_calc.png)
+#### DU-Pair coverage 
+![Alt Text](media/sec2/tables/calcol_dupair_coverage.png)
+
+### `Range.contains()` 
+![Alt Text](media/sec2/contains_dfg_drawio.png)
+
+#### Defs/Uses/DU-pairs
+![Alt Text](media/sec2/tables/contains_def_uses_dupair_.png)
+#### DU-pair coverage calculations
+![Alt Text](media/sec2/tables/contains_coverage_calc.png)
+Total CU = 0 PU = 7
+#### DU-Pair coverage 
+![Alt Text](media/sec2/tables/contains_testcase.png)
+All-uses coverage = (CUc + PUc) / [ (CU + PU) - (CUf + PUf) ] = 100%
+
 
 # 3 A detailed description of the testing strategy for the new unit test
 
-Text…
+We use Control Flow Graphs, or CFGs, to visualize possible test cases from Assignment 2. 
+
+calculateColumnTotal 
+![Alt Text](media/sec3/Calculate_column_total_drawio.png)
+
+calculateRowTotal 
+![Alt Text](media/sec3/Calculate_Row_Total_drawio.png)
+
+createNumberArray
+![Alt Text](media/sec3/Create_Number_Array.png)
+
+createNumberArray2D
+![Alt Text](media/sec3/Create_Number_Array_2D.png)
+
+constrain
+![Alt Text](media/sec3/a3-constrain_drawio.png)
+
+contains
+![Alt Text](media/sec3/a3-contains_drawio_2.png)
+
+
 
 # 4 A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
 
-Text…
+
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
-Text…
+#### DataUtilities branch coverage
+![Alt Text](media/sec5/data_util_branch_coverage.png)
+
+#### DataUtilities method coverage
+![Alt Text](media/sec5/datautil_method_coverage.png)
+
+#### Range branch coverage
+![Alt Text](media/sec5/range_branch_coverage.png)
+
+#### Range instructions coverage
+![Alt Text](media/sec5/range_instructions_coverage.png)
+
+#### Range method coverage
+![Alt Text](media/sec5/range_method_coverage.png)
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
 
-Text…
+In this assignment, we selected EclEmma as our Java code coverage tool, mainly because it was recommended. Integrated seamlessly with Eclipse, EclEmma offers a convenient and efficient way to analyze code coverage directly from the development environment. This integration is pivotal for its appeal, enabling rapid development cycles by allowing immediate coverage analysis right from the Eclipse workbench. The tool's ability to deliver comprehensive coverage results without requiring modifications to the project or extensive setup processes stands out as a significant advantage.
+
+EclEmma provided us with valuable insights through the three statement, branch, and method coverages metrics. One of the tool's strengths lies in its widespread adoption among our team members, which facilitated a smooth transition to using it for control flow coverage analysis. Its support for method coverage metrics is particularly noteworthy, as it guarantees that all methods and functions are tested at least once, enhancing the thoroughness of our testing process.
+
+However, EclEmma is not without its limitations. Its lack of support for condition coverage emerges as a notable drawback. Condition coverage is essential for ensuring that all Boolean expressions are evaluated independently at least once during testing, a metric crucial for comprehensive code analysis. This gap in capability means that EclEmma might not be the optimal choice for projects where condition coverage is a priority.
+
 
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 
-Text…
+### Requirements-Based Test Generation:
+#### Advantages:
+- Tests both functional and non-functional requirements, ensuring the software aligns with its intended purpose and meets stakeholders' expectations.
+- Identifies defects early in the development process, reducing the time and cost associated with later fixes.
+- Eliminates bias in test case design, as tests are derived from requirements rather than the code itself.
+- Enhances communication among team members by fostering a clear understanding and documentation of requirements, which facilitates collaboration between developers, testers, and stakeholders.
+- Directly aligns testing with stakeholder expectations and business objectives, potentially increasing stakeholder satisfaction with the final product.
+
+#### Disadvantages:
+- Incomplete or ambiguous requirements can lead to insufficient test coverage, missing critical scenarios.
+- Tends to overlook scenarios not explicitly mentioned in the requirements, potentially missing edge cases and unintended interactions.
+- Relies heavily on the tester's interpretation of requirements, making it susceptible to human error.
+- May struggle to adapt to changing requirements in agile development environments, where requirements can evolve frequently.
+- Heavily depends on the quality of the requirements documentation, which can be a bottleneck if the documentation is poor or outdated.
+
+### Coverage-Based Test Generation:
+#### Advantages:
+- Aims for exhaustive code coverage, including statement, branch, and method coverage, to uncover hidden defects.
+- Facilitates automation, integrating well with continuous integration systems for regular testing cycles.
+- Offers a viable testing strategy in the absence of detailed requirements or specifications, ensuring baseline code quality.
+- Provides quantifiable metrics that can be used to gauge the progress of testing efforts and set tangible goals for improvement.
+- Particularly useful in identifying regressions or unintended side effects of changes in the codebase, ensuring that previously tested and working parts remain reliable after updates.
+
+#### Disadvantages:
+- May not focus on the software's functional correctness or behavior, leading to tests that cover code but miss business logic errors.
+- Code coverage metrics, while useful, do not confirm that all input combinations and scenarios have been tested, potentially leaving gaps in test coverage.
+- The focus on achieving high coverage metrics can sometimes lead to a quantity-over-quality approach, where testers write many superficial tests rather than fewer, more meaningful tests.
+- High coverage numbers can create a false sense of security, leading to complacency and the assumption that high coverage equates to high quality, which is not always the case.
+
+
 
 # 8 A discussion on how the team work/effort was divided and managed
 
-Text…
+Last assignment we split it such that each member was able to do a test from each "Range" and "DataUtilities" from JFreeChart. We followed suit in this assignment for drawing out the various graphs and analyzing DU-pairs. However, as mentioned in the following section 9, we faced difficulties in keeping track of all the calculations so everybody got the opportunity to chime in and review each others work together to ensure things were on track.
+
+
+
+
+
+
+
 
 # 9 Any difficulties encountered, challenges overcome, and lessons learned from performing the lab
 
-Text…
+In manual coverage testing, we found it cumbersome keeping track of all the various values present and staying aligned in our calculations. 
+
+
+
+
 
 # 10 Comments/feedback on the lab itself
 
-Text…
+
